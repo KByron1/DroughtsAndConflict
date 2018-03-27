@@ -4,23 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <title>Droughts to Conflicts</title>
-
+    <script src="leaflet-src.js"></script>
+    <script src="Timeline.js"></script>
+    <link href="leaflet.css" rel="stylesheet">
     <link rel="stylesheet" href="leaflet.css" />
+    <link rel="stylesheet" href="leaflet.timeline.sass" />
     <link rel="stylesheet" href="myStylesheet.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" />
     <script src="leaflet.js"></script>
     <script src="heatmap.js"></script>
     <script src="leaflet-heatmap.js"></script>
     <script src="heatmap-data.js"></script>
-    <script src="ViolenceData.js"></script>
     <!-- MAKE SURE MY MAIN IS LOADED LAST OTHERWISE THIS SHIT WONT WORK-->
-    <script src="myMain.js"></script>
+    
 </head>
 
 <body>
-
+    <div id="info">
+        <h1>Quarrels</h1>
+        <h2>Over the Last Couple Months</h2>
+        <h3>Currently displayed:</h3>
+        <ul id="displayed-list"></ul>
+      </div>
     <div id="mapDivId"></div>
 
+    <script src="myMain.js"></script>
+    <script src="Violence-Data.js"></script>
 </body>
 
 </html>
