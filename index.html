@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Droughts to Conflicts</title>
+    <script src="jquery-3.3.1.min.js"></script>
     <script src="leaflet-src.js"></script>
-    <script src="Timeline.js"></script>
     <link href="leaflet.css" rel="stylesheet">
     <link rel="stylesheet" href="leaflet.css" />
     <link rel="stylesheet" href="leaflet.timeline.sass" />
@@ -15,8 +15,13 @@
     <script src="heatmap.js"></script>
     <script src="leaflet-heatmap.js"></script>
     <script src="heatmap-data.js"></script>
+    <script src="Violence-Data.js"></script>
+
+
+    <!--Timeline stuff-->
+    <script src="leaflet.timeline.js"></script>
     <!-- MAKE SURE MY MAIN IS LOADED LAST OTHERWISE THIS SHIT WONT WORK-->
-    
+
 </head>
 
 <body>
@@ -25,11 +30,11 @@
         <h2>Over the Last Couple Months</h2>
         <h3>Currently displayed:</h3>
         <ul id="displayed-list"></ul>
-      </div>
+    </div>
     <div id="mapDivId"></div>
 
     <script src="myMain.js"></script>
-    <script src="Violence-Data.js"></script>
+
 </body>
 
 </html>
