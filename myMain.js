@@ -87,7 +87,7 @@ window.onload = function () {
     var intervalObject =
       {
         start: Date.parse(riot.properties.startdate),
-        end: Date.parse(riot.properties.enddate) + (86400000*4),
+        end: Date.parse(riot.properties.enddate) + (86400000*30),
       };
       //console.log(intervalObject)
     return intervalObject;
