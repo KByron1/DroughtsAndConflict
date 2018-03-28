@@ -119,9 +119,9 @@ window.onload = function () {
       var hue_min = 120;
       var hue_max = 0;
       var hue = data.properties.ndeath / 10 * (hue_max - hue_min) + hue_min;
-      var popList = "<dt>Description: </dt>"
+      var popList = "<dt><b>Description: </b></dt>"
         + "<dd>" + data.properties.issuenote + "</dd>"
-        + "<dt>Casualties: </dt>"
+        + "<dt><b>Deaths: </b></dt>"
         + "<dd>" + data.properties.ndeath + "</dd>"
       return L.circleMarker(latlng, {
         radius: data.properties.ndeath,
