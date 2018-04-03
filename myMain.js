@@ -50,7 +50,7 @@ window.onload = function () {
   //TODO not in use at the moment
   var cfg = {
     "radius": 0.005,
-    "maxOpacity": .8,
+    "maxOpacity": 1,
     "scaleRadius": true,
     "uselocalExtrema": true,
     latField: 'lat',
@@ -78,11 +78,11 @@ window.onload = function () {
     displayed.forEach(function (riot) {
       var li = document.createElement('li');
       var sideList = "<dt><b>Country: </b></dt>"
-      + "<dd>" + riot.feature.properties.countryname + "</dd>"
-      + "<dt><b>Description: </b></dt>"
-      + "<dd>" + riot.feature.properties.issuenote + "</dd>"
-      + "<dt><b>Deaths: </b></dt>"
-      + "<dd>" + riot.feature.properties.ndeath + "</dd>"
+        + "<dd>" + riot.feature.properties.countryname + "</dd>"
+        + "<dt><b>Description: </b></dt>"
+        + "<dd>" + riot.feature.properties.issuenote + "</dd>"
+        + "<dt><b>Deaths: </b></dt>"
+        + "<dd>" + riot.feature.properties.ndeath + "</dd>"
       var sideListSmall = sideList.fontsize(2);
       li.innerHTML = (sideListSmall);
       list.appendChild(li);
@@ -96,7 +96,7 @@ window.onload = function () {
         start: Date.parse(riot.properties.startdate),
         end: Date.parse(riot.properties.enddate) + (86400000 * 150),
       };
-      //console.log(intervalObject)
+    //console.log(intervalObject)
     return intervalObject;
   };
   var timelineControl = L.timelineSliderControl({
@@ -116,19 +116,30 @@ window.onload = function () {
   var timeline = L.timeline(violence, {
     getInterval: getInterval,
     pointToLayer: function (data, latlng) {
-      var bright_min = 0;
-      var bright_max = 50;
-      var brightness = (50-(data.properties.ndeath));
+      var deaths = data.properties.ndeath;
       var popList = "<dt><b>Description: </b></dt>"
         + "<dd>" + data.properties.issuenote + "</dd>"
         + "<dt><b>Deaths: </b></dt>"
         + "<dd>" + data.properties.ndeath + "</dd>"
+      var fillColorVar = "";
+      if (data.properties.ndeath > -1 && data.properties.ndeath < 1) {
+        fillColorVar = 115;
+      } else if (data.properties.ndeath > 0 && data.properties.ndeath < 10) {
+        fillColorVar = 60;
+      } else if (data.properties.ndeath >= 10 && data.properties.ndeath < 20) {
+        fillColorVar = 40;
+      } else if (data.properties.ndeath >= 20 && data.properties.ndeath < 100) {
+        fillColorVar = 20;
+      } else if (data.properties.ndeath >= 100) {
+        fillColorVar = 1;
+      }
       return L.circleMarker(latlng, {
-        radius: 5,
-        color: "hsla(360, 100%, " + brightness + "%, 1)",
-        fillColor: "hsla(360, 100%, " + brightness + "%, 1)"
+        radius: 10,
+        fillOpacity: 1,
+        color: "hsl(" + fillColorVar + ", 100%, 25%)",
+        fillColor: "hsl(" + fillColorVar + ", 100%, 50%)"
       }).bindPopup(popList);
-      
+
     }
   });
   timelineControl.addTo(mapObject);
