@@ -116,17 +116,17 @@ window.onload = function () {
   var timeline = L.timeline(violence, {
     getInterval: getInterval,
     pointToLayer: function (data, latlng) {
-      var hue_min = 120;
-      var hue_max = 0;
-      var hue = data.properties.ndeath / 10 * (hue_max - hue_min) + hue_min;
+      var bright_min = 0;
+      var bright_max = 50;
+      var brightness = (50-(data.properties.ndeath));
       var popList = "<dt><b>Description: </b></dt>"
         + "<dd>" + data.properties.issuenote + "</dd>"
         + "<dt><b>Deaths: </b></dt>"
         + "<dd>" + data.properties.ndeath + "</dd>"
       return L.circleMarker(latlng, {
-        radius: data.properties.ndeath,
-        color: "hsl(" + hue + ", 100%, 50%)",
-        fillColor: "hsl(" + hue + ", 100%, 50%)"
+        radius: 5,
+        color: "hsla(360, 100%, " + brightness + "%, 1)",
+        fillColor: "hsla(360, 100%, " + brightness + "%, 1)"
       }).bindPopup(popList);
       
     }
