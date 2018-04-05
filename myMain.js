@@ -15,7 +15,6 @@ myFunctionHolder.addPopups = function (feature, layer) {
 //declaring function 2
 myFunctionHolder.pointToCircle = function (feature, latlng) {
   var fillColorVar = "";
-
   if (Number(feature.properties["ndeath"]) > 0 && Number(feature.properties["ndeath"]) < 5) {
     fillColorVar = "Green";
   } else if (Number(feature.properties["ndeath"]) > 5 && Number(feature.properties["ndeath"]) < 10) {
@@ -23,7 +22,6 @@ myFunctionHolder.pointToCircle = function (feature, latlng) {
   } else if (Number(feature.properties["ndeath"]) > 10 && Number(feature.properties["ndeath"]) < 100000) {
     fillColorVar = "Red";
   }
-
   var geojsonMarkerOptions = {
     radius: 8,
     fillColor: fillColorVar,
@@ -106,6 +104,19 @@ window.onload = function () {
       //return date;
     }
   });
+
+    var cfg = {
+          "radius": .9,
+          "maxOpacity": .7,
+          "scaleRadius": true,
+          "uselocalExtrema": true,
+          latField: ('lat'),
+          lngField: ('lng'),
+          valueField: 'value'
+        };
+        var heatmapLayer= new HeatmapOverlay(cfg);
+        heatmapLayer.setData(TwoFiveDroughtData);
+        mapObject.addLayer(heatmapLayer);
 
   // var timelineControl = L.timelineSliderControl({
   //   formatOutput: function(date){
