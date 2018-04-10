@@ -156,10 +156,10 @@ window.onload = function () {
   timelineControl.addTo(mapObject);
   timelineControl.addTimelines(timeline);
   timeline.addTo(mapObject);
-  timeline.on('change', function (e) {
-    updateList(e.target);
-  });
-  updateList(timeline);
+  //timeline.on('change', function (e) {
+  //  updateList(e.target);
+  //});
+  //updateList(timeline);
 
 
   //END EARTHKUAKE DATA
