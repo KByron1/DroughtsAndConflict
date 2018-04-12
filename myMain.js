@@ -144,11 +144,32 @@ window.onload = function () {
       } else if (data.properties.ndeath >= 100) {
         fillColorVar = 1;
       }
+      var zoomed=2
+      var myZoom = {
+          start: mapObject.getZoom(),
+          end: mapObject.getZoom()
+      };
+      
+      mapObject.on('zoomstart', function (e) {
+          myZoom.start = mapObject.getZoom();
+      });
+       
+      mapObject.on('zoomend', function(e) {
+          myZoom.end = mapObject.getZoom();
+          var diff = myZoom.start - myZoom.end;
+          if (diff > 0) {
+              zoomed = 15;
+          } else if (diff < 0) {
+              zoomed = .06666666666;
+          }
+      });
+      //var zoomed = 10000;
       return L.circleMarker(latlng, {
-        radius: 10,
+          radius: 10*zoomed,
         fillOpacity: 1,
         color: "hsl(" + fillColorVar + ", 100%, 25%)",
         fillColor: "hsl(" + fillColorVar + ", 100%, 50%)"
+
       }).bindPopup(popList);
 
     }
@@ -156,10 +177,10 @@ window.onload = function () {
   timelineControl.addTo(mapObject);
   timelineControl.addTimelines(timeline);
   timeline.addTo(mapObject);
-  //timeline.on('change', function (e) {
-  //  updateList(e.target);
-  //});
-  //updateList(timeline);
+  /*timeline.on('change', function (e) {
+    updateList(e.target);
+  });*/
+  updateList(timeline);
 
 
   //END EARTHKUAKE DATA
