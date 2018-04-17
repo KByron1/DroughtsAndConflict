@@ -163,7 +163,7 @@ window.onload = function () {
       });
       //var zoomed = 10000;
       return L.circleMarker(latlng, {
-          radius: 10,
+          radius: 5,
         fillOpacity: 1,
         color: "hsl(" + fillColorVar + ", 100%, 25%)",
         fillColor: "hsl(" + fillColorVar + ", 100%, 50%)"
