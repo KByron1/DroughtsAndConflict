@@ -69,6 +69,7 @@ window.onload = function () {
 
   //start earthquake data
   //TODO not in use
+  /*
   function updateList(timeline) {
     var displayed = timeline.getLayers();
     var list = document.getElementById("displayed-list");
@@ -86,7 +87,7 @@ window.onload = function () {
       list.appendChild(li);
     });
   }
-
+*/
   // eqfeed_callback is called once the earthquake geojsonp file below loads
   var getInterval = function (riot) {
     var intervalObject =
