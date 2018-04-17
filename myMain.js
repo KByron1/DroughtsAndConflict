@@ -69,31 +69,39 @@ window.onload = function () {
 
   //start earthquake data
   //TODO not in use
-  /*
-  function updateList(timeline) {
-    var displayed = timeline.getLayers();
-    var list = document.getElementById("displayed-list");
-    list.innerHTML = "";
-    displayed.forEach(function (riot) {
-      var li = document.createElement('li');
-      var sideList = "<dt><b>Country: </b></dt>"
-        + "<dd>" + riot.feature.properties.countryname + "</dd>"
-        + "<dt><b>Description: </b></dt>"
-        + "<dd>" + riot.feature.properties.issuenote + "</dd>"
-        + "<dt><b>Deaths: </b></dt>"
-        + "<dd>" + riot.feature.properties.ndeath + "</dd>"
-      var sideListSmall = sideList.fontsize(2);
-      li.innerHTML = (sideListSmall);
-      list.appendChild(li);
-    });
-  }
-*/
+  // function updateList(timeline) {
+  //   var displayed = timeline.getLayers();
+  //   var list = document.getElementById("displayed-list");
+  //   list.innerHTML = "";
+  //   displayed.forEach(function (riot) {
+  //     var li = document.createElement('li');
+  //     var sideList = "<dt><b>Country: </b></dt>"
+  //       + "<dd>" + riot.feature.properties.countryname + "</dd>"
+  //       + "<dt><b>Description: </b></dt>"
+  //       + "<dd>" + riot.feature.properties.issuenote + "</dd>"
+  //       + "<dt><b>Deaths: </b></dt>"
+  //       + "<dd>" + riot.feature.properties.ndeath + "</dd>"
+  //     var sideListSmall = sideList.fontsize(2);
+  //     li.innerHTML = (sideListSmall);
+  //     list.appendChild(li);
+  //   });
+  // }
+
   // eqfeed_callback is called once the earthquake geojsonp file below loads
-  var getInterval = function (riot) {
+  var getInterval1 = function (riot) {
     var intervalObject =
       {
         start: Date.parse(riot.properties.startdate),
         end: Date.parse(riot.properties.enddate) + (86400000 * 150),
+      };
+    //console.log(intervalObject)
+    return intervalObject;
+  };
+  var getInterval2 = function (drought) {
+    var intervalObject =
+      {
+        start: Date.parse(drought.properties.date),
+        end: Date.parse(drought.properties.date) + (86400000 * 31),
       };
     //console.log(intervalObject)
     return intervalObject;
@@ -106,18 +114,7 @@ window.onload = function () {
     }
   });
 
-    var cfg = {
-          "radius": .9,
-          "maxOpacity": .7,
-          "scaleRadius": true,
-          "uselocalExtrema": true,
-          latField: ('lat'),
-          lngField: ('lng'),
-          valueField: 'value'
-        };
-        var heatmapLayer= new HeatmapOverlay(cfg);
-        heatmapLayer.setData(TwoFiveDroughtData);
-        mapObject.addLayer(heatmapLayer);
+
 
   // var timelineControl = L.timelineSliderControl({
   //   formatOutput: function(date){
@@ -125,8 +122,8 @@ window.onload = function () {
   //   }
   // });
 
-  var timeline = L.timeline(violence, {
-    getInterval: getInterval,
+  var pointTimeline = L.timeline(violence, {
+    getInterval: getInterval1,
     pointToLayer: function (data, latlng) {
       var deaths = data.properties.ndeath;
       var popList = "<dt><b>Description: </b></dt>"
@@ -175,13 +172,60 @@ window.onload = function () {
 
     }
   });
+  
+  var heatmap = {
+    "radius": .9,
+    "maxOpacity": .7,
+    "scaleRadius": true,
+    "uselocalExtrema": true,
+    latField: ('lat'),
+    lngField: ('lng'),
+    valueField: 'value',
+    start: 'date',
+    end: 'date' + (86400000 * 31)
+  };
+  var heatmapLayer= new HeatmapOverlay(heatmap);
+  heatmapLayer.setData(TwoFiveDroughtData);
+
+  pointTimeline.on('change', function() {
+    var currentTime = pointTimeline.time;
+    var Jan = Date.parse("January 01, 2005");
+    if (currentTime > Jan){
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Jan)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+    // if (currentTime = (Jan + 86400000 * 31)) {
+    // mapObject.removeLayer(heatmapLayer)};
+  });
+
+  // mapObject.addLayer(heatmapLayer);
+
+
+
+
+
+
+  // var heatTimeline = L.timeline(heatmapLayer, {
+  //   getInterval: getInterval2
+  // });
+
+
+// var vioTimeline = L.timeline(timeline);
+// vioTimeline.addTo(mapObject);
+// var heatTimeline = L.timeline(heatmapLayer);
+// heatTimeline.addTo(map);
+
   timelineControl.addTo(mapObject);
-  timelineControl.addTimelines(timeline);
-  timeline.addTo(mapObject);
+  timelineControl.addTimelines(pointTimeline);
+  // timelineControl.addTimelines(heatTimeline);
+  pointTimeline.addTo(mapObject);
+  // heatTimeline.addTo(mapObject);
   /*timeline.on('change', function (e) {
     updateList(e.target);
   });*/
-  updateList(timeline);
+  updateList(pointTimeline);
 
 
   //END EARTHKUAKE DATA
