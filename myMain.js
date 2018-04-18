@@ -174,7 +174,7 @@ window.onload = function () {
   });
   
   var heatmap = {
-    "radius": .7,
+    "radius": .8,
     "maxOpacity": .7,
     "scaleRadius": true,
     "uselocalExtrema": false,
