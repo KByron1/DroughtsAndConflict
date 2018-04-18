@@ -174,21 +174,19 @@ window.onload = function () {
   });
   
   var heatmap = {
-    "radius": .9,
+    "radius": .7,
     "maxOpacity": .7,
     "scaleRadius": true,
-    "uselocalExtrema": true,
+    "uselocalExtrema": false,
     latField: ('lat'),
     lngField: ('lng'),
-    valueField: 'value',
-    start: 'date',
-    end: 'date' + (86400000 * 31)
+    valueField: ('value'),
   };
   var heatmapLayer= new HeatmapOverlay(heatmap);
-  heatmapLayer.setData(TwoFiveDroughtData);
-
   pointTimeline.on('change', function() {
     var currentTime = pointTimeline.time;
+    heatmapLayer.setData(JanTwoFive);
+    //JANUARY
     var Jan = Date.parse("January 01, 2005");
     if (currentTime > Jan){
       mapObject.addLayer(heatmapLayer);
@@ -196,8 +194,116 @@ window.onload = function () {
     if (currentTime > (86400000 * 31 + Jan)){
       mapObject.removeLayer(heatmapLayer);
     }
-    // if (currentTime = (Jan + 86400000 * 31)) {
-    // mapObject.removeLayer(heatmapLayer)};
+
+    //FEBRUARY
+    var Feb = Date.parse("February 01, 2005");
+    if (currentTime > Feb){
+      heatmapLayer.setData(FebTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 28 + Feb)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //MARCH
+    var Mar = Date.parse("March 01, 2005");
+    if (currentTime > Mar){
+      heatmapLayer.setData(MarTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Mar)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+    
+    //APRIL
+    var Apr = Date.parse("April 01, 2005");
+    if (currentTime > Apr){
+      heatmapLayer.setData(AprTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Apr)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //MAY
+    var May = Date.parse("May 01, 2005");
+    if (currentTime > May){
+      heatmapLayer.setData(MayTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + May)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //JUNE
+    var Jun = Date.parse("June 01, 2005");
+    if (currentTime > Jun){
+      heatmapLayer.setData(JunTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Jun)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //JULY
+    var Jul = Date.parse("July 01, 2005");
+    if (currentTime > Jul){
+      heatmapLayer.setData(JulTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Jul)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //AUGUST
+    var Aug = Date.parse("August 01, 2005");
+    if (currentTime > Aug){
+      heatmapLayer.setData(AugTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Aug)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+    
+    //SEPTEMBER
+    var Sep = Date.parse("September 01, 2005");
+    if (currentTime > Sep){
+      heatmapLayer.setData(SepTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Sep)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //OCTOBER
+    var Oct = Date.parse("October 01, 2005");
+    if (currentTime > Oct){
+      heatmapLayer.setData(OctTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Oct)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //NOVEMBER
+    var Nov = Date.parse("November 01, 2005");
+    if (currentTime > Nov){
+      heatmapLayer.setData(NovTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Nov)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //DECEMBER
+    var Dec = Date.parse("December 01, 2005");
+    if (currentTime > Dec){
+      heatmapLayer.setData(DecTwoFive);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Dec)){
+      mapObject.removeLayer(heatmapLayer);
+    }
   });
 
   // mapObject.addLayer(heatmapLayer);

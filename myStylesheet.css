@@ -5,11 +5,10 @@
   bottom: 0;
   right: 0;
   }
-  @import url(http://fonts.googleapis.com/css?family=Open+Sans); 
   html, body{
     margin: 0;
     padding: 0;
-    font-family: "Open Sans", sans-serif;
+    font-family: "Times New Roman", Georgia, 'Times New Roman', Times, serif;
   }
   #info{
     position: fixed;
