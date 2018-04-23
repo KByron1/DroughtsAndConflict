@@ -42,7 +42,7 @@ window.onload = function () {
   var mapObject = L.map('mapDivId').setView([3.090739, 17.404454], 4);
   var baseMap = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiMTIzODIiLCJhIjoiY2pjaTRscWllMmV0ZTMzbnptZXppczA1MCJ9.DbUREsZcMMNHEBwqytnWnA', {
     maxZoom: 18,
-    attribution: "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, Data sourced from <a href='https://www.strausscenter.org/scad.html'> Social Conflict Analysis Database</a> and <a href='mailto:amir.a@uci.edu'>Amir AghaKouchak et al. | <a href='https://github.com/skeate/Leaflet.timeline'>Leaflet.timeline</a>, <a href='https://github.com/Leaflet/Leaflet.heat'>Leaflet.heat</a>"
+    attribution: "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
   }).addTo(mapObject);
 
   //TODO not in use at the moment
@@ -163,7 +163,7 @@ window.onload = function () {
       });
       //var zoomed = 10000;
       return L.circleMarker(latlng, {
-          radius: 5,
+        radius: 5,
         fillOpacity: 1,
         color: "hsl(" + fillColorVar + ", 100%, 25%)",
         fillColor: "hsl(" + fillColorVar + ", 100%, 50%)"
@@ -184,7 +184,22 @@ window.onload = function () {
   };
   var heatmapLayer= new HeatmapOverlay(heatmap);
   pointTimeline.on('change', function() {
+
     var currentTime = pointTimeline.time;
+
+    // var polyLayer = L.geoJson(TwoFive, {filter: layerFilter}).addTo(mapObject);
+    // console.log(polyLayer.toGeoJSON());
+    // function layerFilter (data){
+    //   if ('purse' < currentTime) return true
+    // }
+    // heatmapLayer.setData(TwoFive, {filter: layerFilter});
+    // mapObject.addLayer(heatmapLayer)
+    // // mapObject.addLayer(heatmapLayer, {filter: addfilter});
+    // function layerFilter(data){
+    //         if (86400000 * 31 + data.properties.purse < currentTime) return false
+    //     console.log(heatmapLayer.toGeoJSON());
+    // }
+
     heatmapLayer.setData(JanTwoFive);
     //JANUARY
     var Jan = Date.parse("January 01, 2005");
@@ -304,9 +319,1211 @@ window.onload = function () {
     if (currentTime > (86400000 * 31 + Dec)){
       mapObject.removeLayer(heatmapLayer);
     }
+
+          //JANUARY 2006
+          var Jan = Date.parse("January 01, 2006");
+          if (currentTime > Jan){
+            heatmapLayer.setData(JanTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Jan)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //FEBRUARY
+          var Feb = Date.parse("February 01, 2006");
+          if (currentTime > Feb){
+            heatmapLayer.setData(FebTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 28 + Feb)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //MARCH
+          var Mar = Date.parse("March 01, 2006");
+          if (currentTime > Mar){
+            heatmapLayer.setData(MarTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Mar)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+          
+          //APRIL
+          var Apr = Date.parse("April 01, 2006");
+          if (currentTime > Apr){
+            heatmapLayer.setData(AprTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 30 + Apr)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //MAY
+          var May = Date.parse("May 01, 2006");
+          if (currentTime > May){
+            heatmapLayer.setData(MayTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + May)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //JUNE
+          var Jun = Date.parse("June 01, 2006");
+          if (currentTime > Jun){
+            heatmapLayer.setData(JunTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 30 + Jun)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //JULY
+          var Jul = Date.parse("July 01, 2006");
+          if (currentTime > Jul){
+            heatmapLayer.setData(JulTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Jul)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //AUGUST
+          var Aug = Date.parse("August 01, 2006");
+          if (currentTime > Aug){
+            heatmapLayer.setData(AugTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Aug)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+          
+          //SEPTEMBER
+          var Sep = Date.parse("September 01, 2006");
+          if (currentTime > Sep){
+            heatmapLayer.setData(SepTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 30 + Sep)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //OCTOBER
+          var Oct = Date.parse("October 01, 2006");
+          if (currentTime > Oct){
+            heatmapLayer.setData(OctTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Oct)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //NOVEMBER
+          var Nov = Date.parse("November 01, 2006");
+          if (currentTime > Nov){
+            heatmapLayer.setData(NovTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 30 + Nov)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+      
+          //DECEMBER
+          var Dec = Date.parse("December 01, 2006");
+          if (currentTime > Dec){
+            heatmapLayer.setData(DecTwoSix);
+            mapObject.addLayer(heatmapLayer);
+          }
+          if (currentTime > (86400000 * 31 + Dec)){
+            mapObject.removeLayer(heatmapLayer);
+          }
+
+    //JANUARY 2007
+    var Jan = Date.parse("January 01, 2007");
+    if (currentTime > Jan){
+      heatmapLayer.setData(JanTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Jan)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //FEBRUARY
+    var Feb = Date.parse("February 01, 2007");
+    if (currentTime > Feb){
+      heatmapLayer.setData(FebTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 28 + Feb)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //MARCH
+    var Mar = Date.parse("March 01, 2007");
+    if (currentTime > Mar){
+      heatmapLayer.setData(MarTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Mar)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+    
+    //APRIL
+    var Apr = Date.parse("April 01, 2007");
+    if (currentTime > Apr){
+      heatmapLayer.setData(AprTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Apr)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //MAY
+    var May = Date.parse("May 01, 2007");
+    if (currentTime > May){
+      heatmapLayer.setData(MayTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + May)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //JUNE
+    var Jun = Date.parse("June 01, 2007");
+    if (currentTime > Jun){
+      heatmapLayer.setData(JunTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Jun)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //JULY
+    var Jul = Date.parse("July 01, 2007");
+    if (currentTime > Jul){
+      heatmapLayer.setData(JulTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Jul)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //AUGUST
+    var Aug = Date.parse("August 01, 2007");
+    if (currentTime > Aug){
+      heatmapLayer.setData(AugTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Aug)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+    
+    //SEPTEMBER
+    var Sep = Date.parse("September 01, 2007");
+    if (currentTime > Sep){
+      heatmapLayer.setData(SepTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Sep)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //OCTOBER
+    var Oct = Date.parse("October 01, 2007");
+    if (currentTime > Oct){
+      heatmapLayer.setData(OctTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Oct)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //NOVEMBER
+    var Nov = Date.parse("November 01, 2007");
+    if (currentTime > Nov){
+      heatmapLayer.setData(NovTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 30 + Nov)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+    //DECEMBER
+    var Dec = Date.parse("December 01, 2007");
+    if (currentTime > Dec){
+      heatmapLayer.setData(DecTwoSeven);
+      mapObject.addLayer(heatmapLayer);
+    }
+    if (currentTime > (86400000 * 31 + Dec)){
+      mapObject.removeLayer(heatmapLayer);
+    }
+
+
+         //JANUARY 2008
+         var Jan = Date.parse("January 01, 2008");
+         if (currentTime > Jan){
+           heatmapLayer.setData(JanTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Jan)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //FEBRUARY
+         var Feb = Date.parse("February 01, 2008");
+         if (currentTime > Feb){
+           heatmapLayer.setData(FebTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 28 + Feb)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //MARCH
+         var Mar = Date.parse("March 01, 2008");
+         if (currentTime > Mar){
+           heatmapLayer.setData(MarTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Mar)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+         
+         //APRIL
+         var Apr = Date.parse("April 01, 2008");
+         if (currentTime > Apr){
+           heatmapLayer.setData(AprTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 30 + Apr)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //MAY
+         var May = Date.parse("May 01, 2008");
+         if (currentTime > May){
+           heatmapLayer.setData(MayTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + May)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //JUNE
+         var Jun = Date.parse("June 01, 2008");
+         if (currentTime > Jun){
+           heatmapLayer.setData(JunTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 30 + Jun)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //JULY
+         var Jul = Date.parse("July 01, 2008");
+         if (currentTime > Jul){
+           heatmapLayer.setData(JulTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Jul)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //AUGUST
+         var Aug = Date.parse("August 01, 2008");
+         if (currentTime > Aug){
+           heatmapLayer.setData(AugTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Aug)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+         
+         //SEPTEMBER
+         var Sep = Date.parse("September 01, 2008");
+         if (currentTime > Sep){
+           heatmapLayer.setData(SepTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 30 + Sep)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //OCTOBER
+         var Oct = Date.parse("October 01, 2008");
+         if (currentTime > Oct){
+           heatmapLayer.setData(OctTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Oct)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //NOVEMBER
+         var Nov = Date.parse("November 01, 2008");
+         if (currentTime > Nov){
+           heatmapLayer.setData(NovTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 30 + Nov)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+     
+         //DECEMBER
+         var Dec = Date.parse("December 01, 2008");
+         if (currentTime > Dec){
+           heatmapLayer.setData(DecTwoEight);
+           mapObject.addLayer(heatmapLayer);
+         }
+         if (currentTime > (86400000 * 31 + Dec)){
+           mapObject.removeLayer(heatmapLayer);
+         }
+
+  //JANUARY 2009
+  var Jan = Date.parse("January 01, 2009");
+  if (currentTime > Jan){
+    heatmapLayer.setData(JanTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jan)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //FEBRUARY
+  var Feb = Date.parse("February 01, 2009");
+  if (currentTime > Feb){
+    heatmapLayer.setData(FebTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 28 + Feb)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MARCH
+  var Mar = Date.parse("March 01, 2009");
+  if (currentTime > Mar){
+    heatmapLayer.setData(MarTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Mar)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //APRIL
+  var Apr = Date.parse("April 01, 2009");
+  if (currentTime > Apr){
+    heatmapLayer.setData(AprTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Apr)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MAY
+  var May = Date.parse("May 01, 2009");
+  if (currentTime > May){
+    heatmapLayer.setData(MayTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + May)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JUNE
+  var Jun = Date.parse("June 01, 2009");
+  if (currentTime > Jun){
+    heatmapLayer.setData(JunTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Jun)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JULY
+  var Jul = Date.parse("July 01, 2009");
+  if (currentTime > Jul){
+    heatmapLayer.setData(JulTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jul)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //AUGUST
+  var Aug = Date.parse("August 01, 2009");
+  if (currentTime > Aug){
+    heatmapLayer.setData(AugTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Aug)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //SEPTEMBER
+  var Sep = Date.parse("September 01, 2009");
+  if (currentTime > Sep){
+    heatmapLayer.setData(SepTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Sep)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //OCTOBER
+  var Oct = Date.parse("October 01, 2009");
+  if (currentTime > Oct){
+    heatmapLayer.setData(OctTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Oct)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //NOVEMBER
+  var Nov = Date.parse("November 01, 2009");
+  if (currentTime > Nov){
+    heatmapLayer.setData(NovTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Nov)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //DECEMBER
+  var Dec = Date.parse("December 01, 2009");
+  if (currentTime > Dec){
+    heatmapLayer.setData(DecTwoNine);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Dec)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  //JANUARY 2010
+  var Jan = Date.parse("January 01, 2010");
+  if (currentTime > Jan){
+    heatmapLayer.setData(JanTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jan)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //FEBRUARY
+  var Feb = Date.parse("February 01, 2010");
+  if (currentTime > Feb){
+    heatmapLayer.setData(FebTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 28 + Feb)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MARCH
+  var Mar = Date.parse("March 01, 2010");
+  if (currentTime > Mar){
+    heatmapLayer.setData(MarTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Mar)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //APRIL
+  var Apr = Date.parse("April 01, 2010");
+  if (currentTime > Apr){
+    heatmapLayer.setData(AprTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Apr)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MAY
+  var May = Date.parse("May 01, 2010");
+  if (currentTime > May){
+    heatmapLayer.setData(MayTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + May)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JUNE
+  var Jun = Date.parse("June 01, 2010");
+  if (currentTime > Jun){
+    heatmapLayer.setData(JunTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Jun)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JULY
+  var Jul = Date.parse("July 01, 2010");
+  if (currentTime > Jul){
+    heatmapLayer.setData(JulTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jul)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //AUGUST
+  var Aug = Date.parse("August 01, 2010");
+  if (currentTime > Aug){
+    heatmapLayer.setData(AugTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Aug)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //SEPTEMBER
+  var Sep = Date.parse("September 01, 2010");
+  if (currentTime > Sep){
+    heatmapLayer.setData(SepTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Sep)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //OCTOBER
+  var Oct = Date.parse("October 01, 2010");
+  if (currentTime > Oct){
+    heatmapLayer.setData(OctTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Oct)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //NOVEMBER
+  var Nov = Date.parse("November 01, 2010");
+  if (currentTime > Nov){
+    heatmapLayer.setData(NovTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Nov)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //DECEMBER
+  var Dec = Date.parse("December 01, 2010");
+  if (currentTime > Dec){
+    heatmapLayer.setData(DecTwoTen);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Dec)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  //JANUARY 2011
+  var Jan = Date.parse("January 01, 2011");
+  if (currentTime > Jan){
+    heatmapLayer.setData(JanTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jan)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //FEBRUARY
+  var Feb = Date.parse("February 01, 2011");
+  if (currentTime > Feb){
+    heatmapLayer.setData(FebTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 28 + Feb)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MARCH
+  var Mar = Date.parse("March 01, 2011");
+  if (currentTime > Mar){
+    heatmapLayer.setData(MarTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Mar)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //APRIL
+  var Apr = Date.parse("April 01, 2011");
+  if (currentTime > Apr){
+    heatmapLayer.setData(AprTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Apr)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //MAY
+  var May = Date.parse("May 01, 2011");
+  if (currentTime > May){
+    heatmapLayer.setData(MayTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + May)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JUNE
+  var Jun = Date.parse("June 01, 2011");
+  if (currentTime > Jun){
+    heatmapLayer.setData(JunTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Jun)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //JULY
+  var Jul = Date.parse("July 01, 2011");
+  if (currentTime > Jul){
+    heatmapLayer.setData(JulTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Jul)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //AUGUST
+  var Aug = Date.parse("August 01, 2011");
+  if (currentTime > Aug){
+    heatmapLayer.setData(AugTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Aug)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+  
+  //SEPTEMBER
+  var Sep = Date.parse("September 01, 2011");
+  if (currentTime > Sep){
+    heatmapLayer.setData(SepTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Sep)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //OCTOBER
+  var Oct = Date.parse("October 01, 2011");
+  if (currentTime > Oct){
+    heatmapLayer.setData(OctTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Oct)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //NOVEMBER
+  var Nov = Date.parse("November 01, 2011");
+  if (currentTime > Nov){
+    heatmapLayer.setData(NovTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 30 + Nov)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+
+  //DECEMBER
+  var Dec = Date.parse("December 01, 2011");
+  if (currentTime > Dec){
+    heatmapLayer.setData(DecTwoEleven);
+    mapObject.addLayer(heatmapLayer);
+  }
+  if (currentTime > (86400000 * 31 + Dec)){
+    mapObject.removeLayer(heatmapLayer);
+  }
+//JANUARY 2012
+var Jan = Date.parse("January 01, 2012");
+if (currentTime > Jan){
+  heatmapLayer.setData(JanTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jan)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//FEBRUARY
+var Feb = Date.parse("February 01, 2012");
+if (currentTime > Feb){
+  heatmapLayer.setData(FebTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 28 + Feb)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MARCH
+var Mar = Date.parse("March 01, 2012");
+if (currentTime > Mar){
+  heatmapLayer.setData(MarTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Mar)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//APRIL
+var Apr = Date.parse("April 01, 2012");
+if (currentTime > Apr){
+  heatmapLayer.setData(AprTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Apr)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MAY
+var May = Date.parse("May 01, 2012");
+if (currentTime > May){
+  heatmapLayer.setData(MayTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + May)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JUNE
+var Jun = Date.parse("June 01, 2012");
+if (currentTime > Jun){
+  heatmapLayer.setData(JunTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Jun)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JULY
+var Jul = Date.parse("July 01, 2012");
+if (currentTime > Jul){
+  heatmapLayer.setData(JulTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jul)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//AUGUST
+var Aug = Date.parse("August 01, 2012");
+if (currentTime > Aug){
+  heatmapLayer.setData(AugTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Aug)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//SEPTEMBER
+var Sep = Date.parse("September 01, 2012");
+if (currentTime > Sep){
+  heatmapLayer.setData(SepTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Sep)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//OCTOBER
+var Oct = Date.parse("October 01, 2012");
+if (currentTime > Oct){
+  heatmapLayer.setData(OctTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Oct)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//NOVEMBER
+var Nov = Date.parse("November 01, 2012");
+if (currentTime > Nov){
+  heatmapLayer.setData(NovTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Nov)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//DECEMBER
+var Dec = Date.parse("December 01, 2012");
+if (currentTime > Dec){
+  heatmapLayer.setData(DecTwoTwelve);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Dec)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JANUARY 2013
+var Jan = Date.parse("January 01, 2013");
+if (currentTime > Jan){
+  heatmapLayer.setData(JanTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jan)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//FEBRUARY
+var Feb = Date.parse("February 01, 2013");
+if (currentTime > Feb){
+  heatmapLayer.setData(FebTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 28 + Feb)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MARCH
+var Mar = Date.parse("March 01, 2013");
+if (currentTime > Mar){
+  heatmapLayer.setData(MarTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Mar)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//APRIL
+var Apr = Date.parse("April 01, 2013");
+if (currentTime > Apr){
+  heatmapLayer.setData(AprTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Apr)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MAY
+var May = Date.parse("May 01, 2013");
+if (currentTime > May){
+  heatmapLayer.setData(MayTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + May)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JUNE
+var Jun = Date.parse("June 01, 2013");
+if (currentTime > Jun){
+  heatmapLayer.setData(JunTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Jun)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JULY
+var Jul = Date.parse("July 01, 2013");
+if (currentTime > Jul){
+  heatmapLayer.setData(JulTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jul)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//AUGUST
+var Aug = Date.parse("August 01, 2013");
+if (currentTime > Aug){
+  heatmapLayer.setData(AugTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Aug)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//SEPTEMBER
+var Sep = Date.parse("September 01, 2013");
+if (currentTime > Sep){
+  heatmapLayer.setData(SepTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Sep)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//OCTOBER
+var Oct = Date.parse("October 01, 2013");
+if (currentTime > Oct){
+  heatmapLayer.setData(OctTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Oct)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//NOVEMBER
+var Nov = Date.parse("November 01, 2013");
+if (currentTime > Nov){
+  heatmapLayer.setData(NovTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Nov)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//DECEMBER
+var Dec = Date.parse("December 01, 2013");
+if (currentTime > Dec){
+  heatmapLayer.setData(DecTwoThirteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Dec)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+
+//JANUARY 2014
+var Jan = Date.parse("January 01, 2014");
+if (currentTime > Jan){
+  heatmapLayer.setData(JanTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jan)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//FEBRUARY
+var Feb = Date.parse("February 01, 2014");
+if (currentTime > Feb){
+  heatmapLayer.setData(FebTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 28 + Feb)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MARCH
+var Mar = Date.parse("March 01, 2014");
+if (currentTime > Mar){
+  heatmapLayer.setData(MarTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Mar)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//APRIL
+var Apr = Date.parse("April 01, 2014");
+if (currentTime > Apr){
+  heatmapLayer.setData(AprTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Apr)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MAY
+var May = Date.parse("May 01, 2014");
+if (currentTime > May){
+  heatmapLayer.setData(MayTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + May)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JUNE
+var Jun = Date.parse("June 01, 2014");
+if (currentTime > Jun){
+  heatmapLayer.setData(JunTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Jun)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JULY
+var Jul = Date.parse("July 01, 2014");
+if (currentTime > Jul){
+  heatmapLayer.setData(JulTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jul)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//AUGUST
+var Aug = Date.parse("August 01, 2014");
+if (currentTime > Aug){
+  heatmapLayer.setData(AugTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Aug)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//SEPTEMBER
+var Sep = Date.parse("September 01, 2014");
+if (currentTime > Sep){
+  heatmapLayer.setData(SepTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Sep)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//OCTOBER
+var Oct = Date.parse("October 01, 2014");
+if (currentTime > Oct){
+  heatmapLayer.setData(OctTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Oct)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//NOVEMBER
+var Nov = Date.parse("November 01, 2014");
+if (currentTime > Nov){
+  heatmapLayer.setData(NovTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Nov)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//DECEMBER
+var Dec = Date.parse("December 01, 2014");
+if (currentTime > Dec){
+  heatmapLayer.setData(DecTwoFourteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Dec)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JANUARY 2015
+var Jan = Date.parse("January 01, 2015");
+if (currentTime > Jan){
+  heatmapLayer.setData(JanTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jan)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//FEBRUARY
+var Feb = Date.parse("February 01, 2015");
+if (currentTime > Feb){
+  heatmapLayer.setData(FebTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 28 + Feb)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MARCH
+var Mar = Date.parse("March 01, 2015");
+if (currentTime > Mar){
+  heatmapLayer.setData(MarTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Mar)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//APRIL
+var Apr = Date.parse("April 01, 2015");
+if (currentTime > Apr){
+  heatmapLayer.setData(AprTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Apr)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//MAY
+var May = Date.parse("May 01, 2015");
+if (currentTime > May){
+  heatmapLayer.setData(MayTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + May)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JUNE
+var Jun = Date.parse("June 01, 2015");
+if (currentTime > Jun){
+  heatmapLayer.setData(JunTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Jun)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//JULY
+var Jul = Date.parse("July 01, 2015");
+if (currentTime > Jul){
+  heatmapLayer.setData(JulTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Jul)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//AUGUST
+var Aug = Date.parse("August 01, 2015");
+if (currentTime > Aug){
+  heatmapLayer.setData(AugTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Aug)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//SEPTEMBER
+var Sep = Date.parse("September 01, 2015");
+if (currentTime > Sep){
+  heatmapLayer.setData(SepTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Sep)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//OCTOBER
+var Oct = Date.parse("October 01, 2015");
+if (currentTime > Oct){
+  heatmapLayer.setData(OctTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Oct)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//NOVEMBER
+var Nov = Date.parse("November 01, 2015");
+if (currentTime > Nov){
+  heatmapLayer.setData(NovTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 30 + Nov)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+//DECEMBER
+var Dec = Date.parse("December 01, 2015");
+if (currentTime > Dec){
+  heatmapLayer.setData(DecTwoFifteen);
+  mapObject.addLayer(heatmapLayer);
+}
+if (currentTime > (86400000 * 31 + Dec)){
+  mapObject.removeLayer(heatmapLayer);
+}
+
+
+
   });
 
-  // mapObject.addLayer(heatmapLayer);
+  mapObject.addLayer(heatmapLayer);
 
 
 
@@ -331,7 +1548,7 @@ window.onload = function () {
   /*timeline.on('change', function (e) {
     updateList(e.target);
   });*/
-  updateList(pointTimeline);
+  //updateList(pointTimeline);
 
 
   //END EARTHKUAKE DATA
