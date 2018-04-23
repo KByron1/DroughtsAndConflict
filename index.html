@@ -171,11 +171,62 @@
         <h2>To use this app:</h2>
         <p>Press the play button on the timeline slider to begin the animation. As an incident of violence occurs, a point will appear on the map. At the same time, the drought data will update month by month. Pause the animation at any time or drag the slider to manually change the time. Click on any violence point to get information about number of deaths and a description of the incident.  </p>
         <ul id="displayed-list"></ul>
+        <div class='my-legend'>
+        
+                <div class='legend-title'>Legend</div>
+                <div class='legend-scale'>
+                  <ul class='legend-labels'>
+                    <li><span style='background:rgb(37, 0, 204);'></span>Wetter</li>
+                    <li><span style='background:rgb(0, 196, 16);'></span></li>
+                    <li><span style='background:rgb(255, 251, 0);'></span></li>
+                    <li><span style='background:rgb(253, 207, 0);'></span></li>
+                    <li><span style='background:rgb(255, 0, 0);'></span>Drier</li>
+                  </ul>
+                </div>
+
+                </div>
+                
+                <style type='text/css'>
+                  .my-legend .legend-title {
+                    text-align: left;
+                    margin-bottom: 8px;
+                    font-weight: bold;
+                    font-size: 90%;
+                    }
+                  .my-legend .legend-scale ul {
+                    margin: 0;
+                    padding: 0;
+                    float: left;
+                    list-style: none;
+                    }
+                  .my-legend .legend-scale ul li {
+                    display: block;
+                    float: left;
+                    width: 50px;
+                    margin-bottom: 6px;
+                    text-align: center;
+                    font-size: 80%;
+                    list-style: none;
+                    }
+                  .my-legend ul.legend-labels li span {
+                    display: block;
+                    float: left;
+                    height: 15px;
+                    width: 50px;
+                    }
+                  .my-legend .legend-source {
+                    font-size: 70%;
+                    color: #999;
+                    clear: both;
+                    }
+                  .my-legend a {
+                    color: #777;
+                    }
+                </style>
+        <p> Created by <a href="mailto:byron.31@osu.edu" target="_blank">Kimberly Byron</a>, <a href="mailto:houser.167@osu.edu" target="_blank">William Houser</a>, and <a href="mailto:abarra.2@osu.edu" target="_blank">Kenneth Abarra</a> for <a href="https://geography.osu.edu/courses/5201" target="_blank"> GEOG 5201</a> by <a href="mailto:karimzadeh.1@osu.edu" target="_blank"> Morteza Karimzadeh</a>, April, 2018.</p>
     </div>
     <div id="mapDivId"></div>
-
     <script src="myMain.js"></script>
-
 
 </body>
 
