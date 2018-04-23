@@ -42,7 +42,7 @@ window.onload = function () {
   var mapObject = L.map('mapDivId').setView([3.090739, 17.404454], 4);
   var baseMap = L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiMTIzODIiLCJhIjoiY2pjaTRscWllMmV0ZTMzbnptZXppczA1MCJ9.DbUREsZcMMNHEBwqytnWnA', {
     maxZoom: 18,
-    attribution: "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, Data sourced from <a href='https://www.strausscenter.org/scad.html'> Social Conflict Analysis Database</a> and <a href='mailto:amir.a@uci.edu'>Amir AghaKouchak et al."
+    attribution: "&copy; <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> &copy; <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a>, Data sourced from <a href='https://www.strausscenter.org/scad.html'> Social Conflict Analysis Database</a> and <a href='mailto:amir.a@uci.edu'>Amir AghaKouchak et al. | <a href='https://github.com/skeate/Leaflet.timeline'>Leaflet.timeline</a>, <a href='https://github.com/Leaflet/Leaflet.heat'>Leaflet.heat</a>"
   }).addTo(mapObject);
 
   //TODO not in use at the moment
